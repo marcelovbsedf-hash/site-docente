@@ -1,1 +1,164 @@
-<h1>AGORA ATUALIZOU</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formação Docente</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+
+/* MENU */
+.sidebar {
+  width: 250px;
+  background: #2c3e50;
+  color: white;
+  height: 100vh;
+  position: fixed;
+  padding: 20px;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+/* CONTEÚDO */
+.main {
+  margin-left: 250px;
+  padding: 20px;
+  width: 100%;
+  background: #f4f6f8;
+}
+
+header {
+  text-align: center;
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+/* CARDS */
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+iframe {
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    margin-left: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h2>Menu</h2>
+  <a href="#sec1">Seção 1</a>
+  <a href="#sec2">Seção 2</a>
+  <a href="#sec3">Seção 3</a>
+  <a href="#adapt">Adaptações</a>
+  <a href="#temas">Temas</a>
+</div>
+
+<div class="main">
+
+<header>
+  <h1>Formação Docente</h1>
+  <p>Transtornos do Neurodesenvolvimento</p>
+  <input type="text" id="busca" placeholder="🔎 Buscar..." onkeyup="buscar()">
+</header>
+
+<div class="card" id="sec1">
+  <h2>Seção 1</h2>
+  <p>Assuntos essenciais para classes especiais</p>
+  <iframe src="https://www.youtube.com/embed/dqTTojTija8"></iframe>
+  <iframe src="https://www.youtube.com/embed/kQjtK32mGJQ"></iframe>
+</div>
+
+<div class="card" id="sec2">
+  <h2>Seção 2</h2>
+  <p>Preparação para atuação em classes especiais</p>
+</div>
+
+<div class="card" id="sec3">
+  <h2>Seção 3</h2>
+  <p>Dificuldades enfrentadas</p>
+  <iframe src="https://www.youtube.com/embed/aPknwW8mPAM"></iframe>
+</div>
+
+<div class="card" id="adapt">
+  <h2>Adaptações Pedagógicas</h2>
+  <ul>
+    <li>TDAH</li>
+    <li>TEA</li>
+    <li>Deficiência Intelectual</li>
+    <li>Síndrome de Down</li>
+    <li>Dislexia</li>
+    <li>TPAC</li>
+  </ul>
+</div>
+
+<div class="card" id="temas">
+  <h2>Temas Importantes</h2>
+
+  <h3>Storytelling</h3>
+  <p>O menino que engoliu o choro</p>
+
+  <h3>Arte e Expressão</h3>
+  <iframe src="https://www.youtube.com/embed/I0e3t9S-64c"></iframe>
+
+  <h3>Medicamentos</h3>
+  <p>DSM-5, CID-11, manejo clínico</p>
+
+  <h3>Autismo</h3>
+  <p>Manejo e cuidados</p>
+</div>
+
+</div>
+
+<script>
+function buscar() {
+  let input = document.getElementById("busca").value.toLowerCase();
+  let cards = document.getElementsByClassName("card");
+
+  for (let i = 0; i < cards.length; i++) {
+    let texto = cards[i].innerText.toLowerCase();
+
+    if (texto.includes(input)) {
+      cards[i].style.display = "block";
+    } else {
+      cards[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>

@@ -4,61 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Formação Docente</title>
+<title>Formação Docente | Marcelo Braga</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial;
-  display: flex;
+  font-family: Arial, sans-serif;
   background: #f4f6f8;
-  transition: 0.3s;
 }
 
-.dark {
-  background: #1e1e1e;
-  color: white;
-}
-
-/* MENU */
-.sidebar {
-  width: 260px;
+/* NAVBAR */
+nav {
   background: #2c3e50;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
   color: white;
-  height: 100vh;
-  position: fixed;
-  padding: 20px;
 }
 
-.sidebar a {
-  display: block;
+nav a {
   color: white;
-  margin: 10px 0;
+  margin: 0 10px;
   text-decoration: none;
 }
 
-/* CONTEÚDO */
-.main {
-  margin-left: 260px;
-  padding: 20px;
-  width: 100%;
-}
-
-header {
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  color: white;
   text-align: center;
+  padding: 60px 20px;
 }
 
-input {
-  width: 80%;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-}
-
-button {
-  padding: 10px;
-  margin-top: 10px;
-  cursor: pointer;
+/* CONTAINER */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
 }
 
 /* CARDS */
@@ -68,32 +50,34 @@ button {
   margin: 20px 0;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: 0.3s;
 }
 
-.dark .card {
-  background: #2a2a2a;
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
+/* VIDEO */
 iframe {
   width: 100%;
   height: 300px;
-  margin-top: 10px;
   border-radius: 10px;
 }
 
-/* ANIMAÇÃO */
-.card:hover {
-  transform: scale(1.02);
+/* FOOTER */
+footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
 /* MOBILE */
 @media (max-width: 800px) {
-  .sidebar {
-    display: none;
-  }
-  .main {
-    margin-left: 0;
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -101,77 +85,88 @@ iframe {
 
 <body>
 
-<div class="sidebar">
-  <h2>Menu</h2>
-  <a href="#sec1">Seção 1</a>
-  <a href="#sec2">Seção 2</a>
-  <a href="#sec3">Seção 3</a>
-  <a href="#adapt">Adaptações</a>
-  <a href="#temas">Temas</a>
-</div>
+<nav>
+  <div><strong>Formação Docente</strong></div>
+  <div>
+    <a href="#sobre">Sobre</a>
+    <a href="#atuacao">Atuação</a>
+    <a href="#conteudo">Conteúdo</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
 
-<div class="main">
-
-<header>
+<section class="hero">
   <h1>Formação Docente</h1>
-  <p>Transtornos do Neurodesenvolvimento</p>
+  <p>Transtornos do Neurodesenvolvimento na Educação</p>
+  <p><strong>Psicólogo Marcelo Viglioni Braga</strong></p>
+</section>
 
-  <input type="text" id="busca" placeholder="🔎 Buscar..." onkeyup="buscar()">
-  <br>
-  <button onclick="modoEscuro()">🌙 Modo escuro</button>
-</header>
+<div class="container">
 
-<div class="card" id="sec1">
-  <h2>Seção 1</h2>
-  <p>Assuntos essenciais</p>
+<section id="sobre" class="card">
+  <h2>Sobre</h2>
+  <p>Atuação na formação de professores com foco em educação especial, manejo de transtornos do neurodesenvolvimento e práticas pedagógicas inclusivas.</p>
+</section>
+
+<section id="atuacao" class="card">
+  <h2>Áreas de Atuação</h2>
+  <div class="grid">
+    <div>
+      <h3>Educação Especial</h3>
+      <p>Formação e suporte para professores.</p>
+    </div>
+    <div>
+      <h3>Transtornos</h3>
+      <p>TEA, TDAH, TOD, Dislexia.</p>
+    </div>
+    <div>
+      <h3>Adaptação Pedagógica</h3>
+      <p>Estratégias práticas para sala de aula.</p>
+    </div>
+    <div>
+      <h3>Famílias</h3>
+      <p>Orientação e suporte.</p>
+    </div>
+  </div>
+</section>
+
+<section id="conteudo" class="card">
+  <h2>Conteúdos e Materiais</h2>
+
+  <h3>Seção 1</h3>
   <iframe src="https://www.youtube.com/embed/dqTTojTija8"></iframe>
   <iframe src="https://www.youtube.com/embed/kQjtK32mGJQ"></iframe>
-</div>
 
-<div class="card" id="sec2">
-  <h2>Seção 2</h2>
-  <p>Preparação docente</p>
-</div>
-
-<div class="card" id="sec3">
-  <h2>Seção 3</h2>
-  <p>Dificuldades enfrentadas</p>
+  <h3>Seção 3</h3>
   <iframe src="https://www.youtube.com/embed/aPknwW8mPAM"></iframe>
-</div>
 
-<div class="card" id="adapt">
-  <h2>Adaptações</h2>
+  <h3>Arte e Expressão</h3>
+  <iframe src="https://www.youtube.com/embed/I0e3t9S-64c"></iframe>
+
+</section>
+
+<section class="card">
+  <h2>Adaptações Pedagógicas</h2>
   <ul>
     <li>TDAH</li>
     <li>TEA</li>
     <li>Deficiência Intelectual</li>
     <li>Dislexia</li>
+    <li>TPAC</li>
   </ul>
+</section>
+
+<section id="contato" class="card">
+  <h2>Contato</h2>
+  <p>📞 61 99805-5208</p>
+  <p>CRP 8309</p>
+</section>
+
 </div>
 
-<div class="card" id="temas">
-  <h2>Temas</h2>
-  <iframe src="https://www.youtube.com/embed/I0e3t9S-64c"></iframe>
-</div>
-
-</div>
-
-<script>
-function buscar() {
-  let input = document.getElementById("busca").value.toLowerCase();
-  let cards = document.getElementsByClassName("card");
-
-  for (let i = 0; i < cards.length; i++) {
-    let texto = cards[i].innerText.toLowerCase();
-
-    cards[i].style.display = texto.includes(input) ? "block" : "none";
-  }
-}
-
-function modoEscuro() {
-  document.body.classList.toggle("dark");
-}
-</script>
+<footer>
+  © 2026 - Formação Docente
+</footer>
 
 </body>
 </html>

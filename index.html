@@ -3,18 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Formação Docente</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   display: flex;
+  background: #f4f6f8;
+  transition: 0.3s;
+}
+
+.dark {
+  background: #1e1e1e;
+  color: white;
 }
 
 /* MENU */
 .sidebar {
-  width: 250px;
+  width: 260px;
   background: #2c3e50;
   color: white;
   height: 100vh;
@@ -25,16 +33,15 @@ body {
 .sidebar a {
   display: block;
   color: white;
-  text-decoration: none;
   margin: 10px 0;
+  text-decoration: none;
 }
 
 /* CONTEÚDO */
 .main {
-  margin-left: 250px;
+  margin-left: 260px;
   padding: 20px;
   width: 100%;
-  background: #f4f6f8;
 }
 
 header {
@@ -48,6 +55,12 @@ input {
   border: none;
 }
 
+button {
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
 /* CARDS */
 .card {
   background: white;
@@ -55,6 +68,11 @@ input {
   margin: 20px 0;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.dark .card {
+  background: #2a2a2a;
 }
 
 iframe {
@@ -62,6 +80,11 @@ iframe {
   height: 300px;
   margin-top: 10px;
   border-radius: 10px;
+}
+
+/* ANIMAÇÃO */
+.card:hover {
+  transform: scale(1.02);
 }
 
 /* MOBILE */
@@ -92,19 +115,22 @@ iframe {
 <header>
   <h1>Formação Docente</h1>
   <p>Transtornos do Neurodesenvolvimento</p>
+
   <input type="text" id="busca" placeholder="🔎 Buscar..." onkeyup="buscar()">
+  <br>
+  <button onclick="modoEscuro()">🌙 Modo escuro</button>
 </header>
 
 <div class="card" id="sec1">
   <h2>Seção 1</h2>
-  <p>Assuntos essenciais para classes especiais</p>
+  <p>Assuntos essenciais</p>
   <iframe src="https://www.youtube.com/embed/dqTTojTija8"></iframe>
   <iframe src="https://www.youtube.com/embed/kQjtK32mGJQ"></iframe>
 </div>
 
 <div class="card" id="sec2">
   <h2>Seção 2</h2>
-  <p>Preparação para atuação em classes especiais</p>
+  <p>Preparação docente</p>
 </div>
 
 <div class="card" id="sec3">
@@ -114,31 +140,18 @@ iframe {
 </div>
 
 <div class="card" id="adapt">
-  <h2>Adaptações Pedagógicas</h2>
+  <h2>Adaptações</h2>
   <ul>
     <li>TDAH</li>
     <li>TEA</li>
     <li>Deficiência Intelectual</li>
-    <li>Síndrome de Down</li>
     <li>Dislexia</li>
-    <li>TPAC</li>
   </ul>
 </div>
 
 <div class="card" id="temas">
-  <h2>Temas Importantes</h2>
-
-  <h3>Storytelling</h3>
-  <p>O menino que engoliu o choro</p>
-
-  <h3>Arte e Expressão</h3>
+  <h2>Temas</h2>
   <iframe src="https://www.youtube.com/embed/I0e3t9S-64c"></iframe>
-
-  <h3>Medicamentos</h3>
-  <p>DSM-5, CID-11, manejo clínico</p>
-
-  <h3>Autismo</h3>
-  <p>Manejo e cuidados</p>
 </div>
 
 </div>
@@ -151,12 +164,12 @@ function buscar() {
   for (let i = 0; i < cards.length; i++) {
     let texto = cards[i].innerText.toLowerCase();
 
-    if (texto.includes(input)) {
-      cards[i].style.display = "block";
-    } else {
-      cards[i].style.display = "none";
-    }
+    cards[i].style.display = texto.includes(input) ? "block" : "none";
   }
+}
+
+function modoEscuro() {
+  document.body.classList.toggle("dark");
 }
 </script>
 
